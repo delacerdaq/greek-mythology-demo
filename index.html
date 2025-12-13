@@ -5,127 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mythology Characters</title>
     <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
         <nav class="menu">
-            <a href="#home">HOME</a>
+            <a href="index.html">HOME</a>
             <a href="#characters">CHARACTERS</a>
             <a href="#about">ABOUT</a>
         </nav>
     </header>
 
-    <main class="container"> 
-        <div class="card card-tea">
-            <h2>ZEUS</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Zeus">
-            </div>
-            <div class="stars">★★★★★</div>
-            <button class="btn">SEE MORE</button>
-        </div>
+    <main class="container" id="cardContainer"></main>
 
-        <div class="card card-forest">
-            <h2>POSEIDON</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Poseidon">
-            </div>
-            <div class="stars">★★★★☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
+    <div class="load-more-wrapper">
+        <button id="loadMore" class="btn-load-more">Load More</button>
+    </div>
 
-        <div class="card card-peach">
-            <h2>HERA</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Hera">
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup">
+    
+            <button class="close-btn" id="closePopup">X</button>
+    
+            <div class="popup-content">
+    
+                <div class="popup-img-box">
+                    <img id="popupImage" alt="">
+                </div>
+    
+                <div class="popup-description-box">
+                    <h2 id="popupName"></h2>
+                    <h3 id="popupTitle"></h3>
+    
+                    <p id="popupDescription"></p>
+                    
+                    <div id="popupDomain"></div>
+                    <div id="popupSymbol"></div>
+                    <div id="popupStars"></div>
+                </div>
+    
             </div>
-            <div class="stars">★★★★☆</div>
-            <button class="btn">SEE MORE</button>
+    
         </div>
-
-        <div class="card card-blue">
-            <h2>ATHENA</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Athena">
-            </div>
-            <div class="stars">★★★★★</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-bubble">
-            <h2>APOLLO</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Apollo">
-            </div>
-            <div class="stars">★★★★★</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-earth">
-            <h2>ARES</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Ares">
-            </div>
-            <div class="stars">★★★☆☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-grape">
-            <h2>HADES</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Hades">
-            </div>
-            <div class="stars">★★★★★</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-lilacs">
-            <h2>APHRODITE</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Aphrodite">
-            </div>
-            <div class="stars">★★★★☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-butter">
-            <h2>DEMETER</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Demeter">
-            </div>
-            <div class="stars">★★★★☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-iced">
-            <h2>ARTEMIS</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Artemis">
-            </div>
-            <div class="stars">★★★★★</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-
-        <div class="card card-orange">
-            <h2>HEPHAESTUS</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Hephaestus">
-            </div>
-            <div class="stars">★★★★☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-        
-        <div class="card card-olive">
-            <h2>DIONYSUS</h2>
-            <div class="img-box">
-                <img src="https://via.placeholder.com/365x250" alt="Dionysus">
-            </div>
-            <div class="stars">★★★☆☆</div>
-            <button class="btn">SEE MORE</button>
-        </div>
-    </main>
-
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
