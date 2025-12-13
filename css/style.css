@@ -11,6 +11,36 @@ body {
 }
 
 :root {
+    --cat-chaos: #ff6b6b;
+    --cat-craft: #d4a373;
+    --cat-death: #45637f;
+    --cat-desire: #ff8fab;
+    --cat-earth: #a98467;
+    --cat-family: #ffd6a5;
+    --cat-fate: #6c757d;
+    --cat-fertility: #80ed99;
+    --cat-fire: #ff922b;
+    --cat-healing: #63e6be;
+    --cat-hero: #ffd43b;
+    --cat-hunt: #748ffc;
+    --cat-justice: #4dabf7;
+    --cat-love: #ff5d8f;
+    --cat-magic: #9d4edd;
+    --cat-moon: #dee2e6;
+    --cat-nature: #52b788;
+    --cat-sky: #a5d8ff;
+    --cat-sun: #ffe066;
+    --cat-thunder: #ffd166;
+    --cat-time: #adb5bd;
+    --cat-travel: #74c0fc;
+    --cat-trickster: #f06595;
+    --cat-underworld: #5a6b7c;
+    --cat-victory: #94d82d;
+    --cat-war: #e03131;
+    --cat-water: #4dabf7;
+    --cat-wealth: #fcc419;
+    --cat-wisdom: #5c7cfa;
+    
     --tea-bg: #AACC96;
     --tea-text: #25533F;
     --tea-btn-bg: #25533F;
@@ -122,6 +152,36 @@ body {
 .popup-overlay[data-color="card-orange"] { background: var(--orange-overlay); }
 .popup-overlay[data-color="card-olive"]  { background: var(--olive-overlay); }
 
+.badge-chaos { background: var(--cat-chaos); }
+.badge-craft { background: var(--cat-craft); }
+.badge-death { background: var(--cat-death); }
+.badge-desire { background: var(--cat-desire); }
+.badge-earth { background: var(--cat-earth); }
+.badge-family { background: var(--cat-family); }
+.badge-fate { background: var(--cat-fate);}
+.badge-fertility { background: var(--cat-fertility); }
+.badge-fire { background: var(--cat-fire); }
+.badge-healing { background: var(--cat-healing); }
+.badge-hero { background: var(--cat-hero); }
+.badge-hunt { background: var(--cat-hunt); }
+.badge-justice { background: var(--cat-justice); }
+.badge-love { background: var(--cat-love); }
+.badge-magic { background: var(--cat-magic); }
+.badge-moon { background: var(--cat-moon); }
+.badge-nature { background: var(--cat-nature); }
+.badge-sky { background: var(--cat-sky); }
+.badge-sun { background: var(--cat-sun); }
+.badge-thunder { background: var(--cat-thunder); }
+.badge-time { background: var(--cat-time); }
+.badge-travel { background: var(--cat-travel); }
+.badge-trickster { background: var(--cat-trickster); }
+.badge-underworld { background: var(--cat-underworld); }
+.badge-victory { background: var(--cat-victory); }
+.badge-war { background: var(--cat-war); }
+.badge-water { background: var(--cat-water); }
+.badge-wealth { background: var(--cat-wealth); }
+.badge-wisdom { background: var(--cat-wisdom); }
+
 .menu {
     width: 100%;
     background-color: #F4EDE7;
@@ -161,6 +221,48 @@ body {
     margin-bottom: 10px;
 }
 
+.card-name {
+    font-size: 20px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.card-title {
+    display: block;
+    font-family: 'Montagu Slab', serif;
+    font-size: 14px;
+    opacity: 0.75;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.card-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+}
+
+.badge {
+    color: #000;
+    padding: 4px 10px;
+    font-size: 11px;
+    border-radius: 999px;
+    font-family: 'Michroma', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+}
+
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
 .img-box {
     width: 365px;
     height: 250px;
@@ -176,7 +278,6 @@ body {
 }
 
 .stars {
-    text-align: right;
     font-size: 32px;
 }
 
