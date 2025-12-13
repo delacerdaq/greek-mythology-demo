@@ -10,6 +10,118 @@ body {
     text-transform: uppercase;
 }
 
+:root {
+    --tea-bg: #AACC96;
+    --tea-text: #25533F;
+    --tea-btn-bg: #25533F;
+    --tea-btn-text: #AACC96;
+    --tea-overlay: rgba(170, 204, 150, 0.30);
+    --tea-shade: #C8E1BA;
+
+    --forest-bg: #25533F;
+    --forest-text: #A5D2AA;
+    --forest-btn-bg: #AACC96;
+    --forest-btn-text: #25533F;
+    --forest-overlay: rgba(37, 83, 63, 0.30);
+    --forest-shade: #54A883;
+
+    --peach-bg: #F4BEAE;
+    --peach-text: #6D1F42;
+    --peach-btn-bg: #6D1F42;
+    --peach-btn-text: #F4BEAE;
+    --peach-overlay: rgba(244, 190, 174, 0.30);
+    --peach-shade: #F4D6CD;
+
+    --blue-bg: #52A5CE;
+    --blue-text: #EFCE7B;
+    --blue-btn-bg: #EFCE7B;
+    --blue-btn-text: #52A5CE;
+    --blue-overlay: rgba(82, 165, 206, 0.30);
+    --blue-shade: #B4D2F0;
+
+    --bubble-bg: #FF7BAC;
+    --bubble-text: #6D1F42;
+    --bubble-btn-bg: #6D1F42;
+    --bubble-btn-text: #FF7BAC;
+    --bubble-overlay: rgba(255, 123, 172, 0.30);
+    --bubble-shade: #FFA7C7;
+
+    --earth-bg: #876029;
+    --earth-text: #F4BEAE;
+    --earth-btn-bg: #F4BEAE;
+    --earth-btn-text: #876029;
+    --earth-overlay: rgba(135, 96, 41, 0.30);
+    --earth-shade: #AE7C88;
+
+    --grape-bg: #6D1F42;
+    --grape-text: #D3B6D3;
+    --grape-btn-bg: #D3B6D3;
+    --grape-btn-text: #6D1F42;
+    --grape-overlay: rgba(109, 31, 66, 0.30);
+    --grape-shade: #94355F;
+
+    --lilacs-bg: #D3B6D3;
+    --lilacs-text: #6D1F42;
+    --lilacs-btn-bg: #6D1F42;
+    --lilacs-btn-text: #D3B6D3;
+    --lilacs-overlay: rgba(211, 182, 211, 0.30);
+    --lilacs-shade: #E2CEE2;
+
+    --butter-bg: #EFCE7B;
+    --butter-text: #EF6F3C;
+    --butter-btn-bg: #EF6F3C;
+    --butter-btn-text: #EFCE7B;
+    --butter-overlay: rgba(239, 206, 123, 0.30);
+    --butter-shade: #ECE692;
+
+    --iced-bg: #B8CEE8;
+    --iced-text: #25533F;
+    --iced-btn-bg: #25533F;
+    --iced-btn-text: #B8CEE8;
+    --iced-overlay: rgba(184, 206, 232, 0.30);
+    --iced-shade: #CCDCEF;
+
+    --orange-bg: #EF6F3C;
+    --orange-text: #EFE76B;
+    --orange-btn-bg: #EFE76B;
+    --orange-btn-text: #EF6F3C;
+    --orange-overlay: rgba(239, 111, 60, 0.30);
+    --orange-shade: #ED916C;
+
+    --olive-bg: #AFAB23;
+    --olive-text: #6D1F42;
+    --olive-btn-bg: #6D1F42;
+    --olive-btn-text: #AFAB23;
+    --olive-overlay: rgba(175, 171, 35, 0.30);
+    --olive-shade: #DFDC5E;
+}
+
+.popup-overlay[data-color="card-tea"] .popup { background: var(--tea-shade); }
+.popup-overlay[data-color="card-forest"] .popup { background: var(--forest-shade); }
+.popup-overlay[data-color="card-peach"] .popup { background: var(--peach-shade); }
+.popup-overlay[data-color="card-blue"] .popup { background: var(--blue-shade); }
+.popup-overlay[data-color="card-bubble"] .popup { background: var(--bubble-shade); }
+.popup-overlay[data-color="card-earth"] .popup { background: var(--earth-shade); }
+.popup-overlay[data-color="card-grape"] .popup { background: var(--grape-shade); }
+.popup-overlay[data-color="card-lilacs"] .popup { background: var(--lilacs-shade); }
+.popup-overlay[data-color="card-butter"] .popup { background: var(--butter-shade); }
+.popup-overlay[data-color="card-iced"] .popup { background: var(--iced-shade); }
+.popup-overlay[data-color="card-orange"] .popup { background: var(--orange-shade); }
+.popup-overlay[data-color="card-olive"] .popup { background: var(--olive-shade); }
+
+.popup-overlay[data-color="card-tea"]    { background: var(--tea-overlay); }
+.popup-overlay[data-color="card-forest"] { background: var(--forest-overlay); }
+.popup-overlay[data-color="card-peach"]  { background: var(--peach-overlay); }
+.popup-overlay[data-color="card-blue"]   { background: var(--blue-overlay); }
+.popup-overlay[data-color="card-bubble"] { background: var(--bubble-overlay); }
+.popup-overlay[data-color="card-earth"]  { background: var(--earth-overlay); }
+.popup-overlay[data-color="card-grape"]  { background: var(--grape-overlay); }
+.popup-overlay[data-color="card-lilacs"] { background: var(--lilacs-overlay); }
+.popup-overlay[data-color="card-butter"] { background: var(--butter-overlay); }
+.popup-overlay[data-color="card-iced"]   { background: var(--iced-overlay); }
+.popup-overlay[data-color="card-orange"] { background: var(--orange-overlay); }
+.popup-overlay[data-color="card-olive"]  { background: var(--olive-overlay); }
+
 .menu {
     width: 100%;
     background-color: #F4EDE7;
@@ -42,7 +154,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #333;
 }
 
 .card h2 {
@@ -53,7 +164,7 @@ body {
 .img-box {
     width: 365px;
     height: 250px;
-    border: 2px solid #000;
+    border: 1px solid #000;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -61,72 +172,303 @@ body {
 .img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .stars {
     text-align: right;
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .btn {
-    width: 150px;
+    font-family: "Michroma", sans-serif;
+    width: 100%;
+    text-align: center;
     padding: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center;
+    border: none;
+}
+
+.card-tea .btn {
+    background-color: var(--tea-btn-bg);
+    color: var(--tea-btn-text);
+}
+
+.card-forest .btn {
+    background-color: var(--forest-btn-bg);
+    color: var(--forest-btn-text);
+}
+
+.card-peach .btn {
+    background-color: var(--peach-btn-bg); 
+    color: var(--peach-btn-text);
+}
+
+.card-blue .btn {
+    background-color: var(--blue-btn-bg); 
+    color: var(--blue-btn-text);
+}
+
+.card-bubble .btn {
+    background-color: var(--bubble-btn-bg); 
+    color: var(--bubble-btn-text);
+}
+
+.card-earth .btn {
+    background-color: var(--earth-btn-bg); 
+    color: var(--earth-btn-text);
+}
+
+.card-grape .btn {
+    background-color: var(--grape-btn-bg);  
+    color: var(--grape-btn-text);
+}
+
+.card-lilacs .btn {
+    background-color: var(--lilacs-btn-bg);  
+    color: var(--lilacs-btn-text);
+}
+
+.card-butter .btn {
+    background-color: var(--butter-btn-bg);  
+    color: var(--butter-btn-text);
+}
+
+.card-iced .btn {
+    background-color: var(--iced-btn-bg);  
+    color: var(--iced-btn-text);
+}
+
+.card-orange .btn {
+    background-color: var(--orange-btn-bg); 
+    color: var(--orange-btn-text);
+}
+
+.card-olive .btn {
+    background-color: var(--olive-btn-bg); 
+    color: var(--olive-btn-text);
+}
+
+.card-tea {
+    background-color: var(--tea-bg);
+    color: var(--tea-text);
+}
+
+.card-forest {
+    background-color: var(--forest-bg);
+    color: var(--forest-text);
+}
+
+.card-peach {
+    background-color: var(--peach-bg);
+    color: var(--peach-text);
+}
+
+.card-blue {
+    background-color: var(--blue-bg);
+    color: var(--blue-text);
+}
+
+.card-bubble {
+    background-color: var(--bubble-bg);
+    color: var(--bubble-text);
+}
+
+.card-earth {
+    background-color: var(--earth-bg);
+    color: var(--earth-text);
+}
+
+.card-grape {
+    background-color: var(--grape-bg);
+    color: var(--grape-text);
+}
+
+.card-lilacs {
+    background-color: var(--lilacs-bg);
+    color: var(--lilacs-text);
+}
+
+.card-butter {
+    background-color: var(--butter-bg);
+    color: var(--butter-text);
+}
+
+.card-iced {
+    background-color: var(--iced-bg);
+    color: var(--iced-text);
+}
+
+.card-orange {
+    background-color: var(--orange-bg);
+    color: var(--orange-text);
+}
+
+.card-olive {
+    background-color: var(--olive-bg);
+    color: var(--olive-text);
+}
+
+.load-more-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.btn-load-more {
+    padding: 14px 40px;
     border: 2px solid #000;
     border-radius: 10px;
     background: transparent;
     cursor: pointer;
+    font-size: 18px;
+    font-family: "Michroma", sans-serif;
+    text-transform: uppercase;
+}
+
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: reveal 0.6s ease forwards;
+    animation-play-state: paused;
+  }
+
+.card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+  
+  .card.show {
+    animation-play-state: running;
+  }
+  
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.popup {
+    width: 100%;
+    max-width: 1150px;
+    height: auto;
+    max-height: 740px;
+    overflow-y: auto;
+    border-radius: 20px;
+    padding: 35px;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    animation: pop 0.25s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.popup img {
+    width: 90%;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    z-index: 9999;
+    padding: 20px;
+}
+
+@media (max-width: 1280px) {
+    .popup {
+        max-width: 95%;
+        max-height: 90vh;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .popup {
+        padding: 15px;
+        border-radius: 14px;
+    }
+}
+
+.popup-content {
+    font-family: "Montagu Slab", serif;
+    font-optical-sizing: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-img-box {
+    width: 365px;
+    max-width: 90%;
+    height: 250px;
+    max-height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.popup-description-box {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
     font-size: 16px;
-    align-self: center;
+    margin-top: 20px;
 }
 
-.card-tea {
-    background-color: #AACC96;
+@media (max-width: 600px) {
+    .popup-description-box {
+        font-size: 15px;
+        padding: 0 10px;
+    }
 }
 
-.card-forest {
-    background-color: #25533F;
-    color: #fff;
-}
-
-.card-peach {
-    background-color: #F4BEAE;
-}
-
-.card-blue {
-    background-color: #52A5CE;
-}
-
-.card-bubble {
-    background-color: #FF7BAC;
-}
-
-.card-earth {
-    background-color: #876029;
-    color: #fff;
-}
-
-.card-grape {
-    background-color: #6D1F42;
-    color: #fff;
-}
-
-.card-lilacs {
-    background-color: #D3B6D3;
-}
-
-.card-butter {
-    background-color: #EFCE7B;
-}
-
-.card-iced {
-    background-color: #B8CEE8;
-}
-
-.card-orange {
-    background-color: #EF6F3C;
-}
-
-.card-olive {
-    background-color: #AFAB23;
+.close-btn {
+    border: none;
+    background: none;
+    font-size: 22px;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    cursor: pointer;
 }
