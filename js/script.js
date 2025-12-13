@@ -65,16 +65,29 @@ function createCard(character, colorClass) {
     card.className = `card ${colorClass}`;
 
     card.innerHTML = `
-        <h2>${character.name}</h2>
+    <h2 class="card-name">${character.name}</h2>
+    <span class="card-title">${character.title}</span>
 
-        <div class="img-box">
-            <img src="${character.image ? character.image : ''}" alt="${character.name}">
+    <div class="img-box">
+        <img src="${character.image || ''}" alt="${character.name}">
+    </div>
+
+    <div class="card-meta">
+        <div class="card-categories">
+            ${character.categories.map(cat => `
+                <span class="badge badge-${cat.toLowerCase()}">${cat}</span>
+            `).join('')}
         </div>
 
-        <div class="stars">${generateStars(character.rank)}</div>
+        <div class="stars">
+            ${generateStars(character.rank)}
+        </div>
+    </div>
 
-        <button class="btn see-more-btn" data-id="${character.id}">SEE MORE</button>
-    `;
+    <button class="btn see-more-btn" data-id="${character.id}">
+        SEE MORE
+    </button>
+`;
 
     return card;
 }
