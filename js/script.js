@@ -34,6 +34,7 @@ async function loadCharacters() {
         filteredCharacters = [...charactersData];
 
         buildCategorySelect(charactersData);
+        toggleNoResultsMessage(filteredCharacters.length);
         renderMoreCards();
         revealOnScroll();
     } catch (error) {
@@ -182,19 +183,60 @@ function buildCategorySelect(characters) {
     });
 }
 
-document.getElementById('categorySelect').addEventListener('change', e => {
-    const selected = e.target.value;
+function debounce(fn, delay = 300) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
 
-    filteredCharacters = selected === 'all'
-        ? [...charactersData]
-        : charactersData.filter(char =>
-            char.categories.includes(selected)
-        );
+
+document.getElementById('categorySelect').addEventListener('change', () => {
+    applyFilters();
+});
+
+const debouncedApplyFilters = debounce(applyFilters, 300);
+
+document.getElementById('searchInput').addEventListener('input', debouncedApplyFilters);
+
+function applyFilters() {
+    const searchValue = document
+        .getElementById('searchInput')
+        .value
+        .toLowerCase()
+        .trim();
+
+    const selectedCategory =
+        document.getElementById('categorySelect').value;
+
+    filteredCharacters = charactersData.filter(char => {
+        const matchText =
+            char.name.toLowerCase().includes(searchValue) ||
+            (char.title && char.title.toLowerCase().includes(searchValue));
+
+        const matchCategory =
+            selectedCategory === 'all' ||
+            char.categories.includes(selectedCategory);
+
+        return matchText && matchCategory;
+    });
 
     currentIndex = 0;
-    document.getElementById('cardContainer').innerHTML = '';
-    document.querySelector('.load-more-wrapper').style.display = 'block';
+    const container = document.getElementById('cardContainer');
+    container.innerHTML = '';
+
+    toggleNoResultsMessage(filteredCharacters.length);
+
+    document.querySelector('.load-more-wrapper').style.display =
+        filteredCharacters.length > batchSize ? 'block' : 'none';
 
     renderMoreCards();
-});
+}
+
+function toggleNoResultsMessage(hasResults) {
+    const msg = document.getElementById('noResults');
+    msg.style.display = hasResults ? 'none' : 'block';
+}
+
 

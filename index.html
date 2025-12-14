@@ -18,14 +18,19 @@
         </nav>
     </header>
 
-    <nav class="menu category-menu">
+    <nav class="menu category-menu search-menu">
+        <input type="text" id="searchInput" placeholder="Search character">
+        
         <select id="categorySelect">
             <option value="all">All categories</option>
         </select>
     </nav>
-    
 
     <main class="container" id="cardContainer"></main>
+
+    <p id="noResults" class="no-results">
+        No results found
+    </p>    
 
     <div class="load-more-wrapper">
         <button id="loadMore" class="btn-load-more">Load More</button>
