@@ -16,6 +16,7 @@ const paletteClasses = [
 const apiURL = "./data/greek_characters.json";
 
 let charactersData = [];
+let filteredCharacters = [];
 let currentIndex = 0;
 const batchSize = 6;
 
@@ -29,10 +30,10 @@ async function loadCharacters() {
         const response = await fetch(apiURL);
         const data = await response.json();
 
-        charactersData = data.characters
-            .filter(char => char.name && char.rank)
-            .slice(0, 60);
+        charactersData = data.characters.filter(c => c.name && c.rank);
+        filteredCharacters = [...charactersData];
 
+        buildCategorySelect(charactersData);
         renderMoreCards();
         revealOnScroll();
     } catch (error) {
@@ -43,19 +44,23 @@ async function loadCharacters() {
 function renderMoreCards() {
     const container = document.getElementById("cardContainer");
 
-    const end = currentIndex + batchSize;
-    const nextSet = charactersData.slice(currentIndex, end);
+    const nextItems = filteredCharacters.slice(
+        currentIndex,
+        currentIndex + batchSize
+    );
 
-    nextSet.forEach((character, index) => {
-        const paletteClass = paletteClasses[(currentIndex + index) % paletteClasses.length];
+    nextItems.forEach((character, index) => {
+        const paletteClass =
+            paletteClasses[(currentIndex + index) % paletteClasses.length];
 
-        const card = createCard(character, paletteClass);
-        container.appendChild(card);
+        container.appendChild(createCard(character, paletteClass));
     });
 
-    currentIndex = end;
+    currentIndex += batchSize;
 
-    if (currentIndex >= charactersData.length) {
+    revealOnScroll();
+
+    if (currentIndex >= filteredCharacters.length) {
         document.querySelector(".load-more-wrapper").style.display = "none";
     }
 }
@@ -160,4 +165,36 @@ function validateRoute() {
 
 window.addEventListener('load', validateRoute);
 window.addEventListener('hashchange', validateRoute);
+
+function buildCategorySelect(characters) {
+    const select = document.getElementById('categorySelect');
+    const categories = new Set();
+
+    characters.forEach(char => {
+        char.categories.forEach(cat => categories.add(cat));
+    });
+
+    [...categories].sort().forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat;
+        option.textContent = cat.toUpperCase();
+        select.appendChild(option);
+    });
+}
+
+document.getElementById('categorySelect').addEventListener('change', e => {
+    const selected = e.target.value;
+
+    filteredCharacters = selected === 'all'
+        ? [...charactersData]
+        : charactersData.filter(char =>
+            char.categories.includes(selected)
+        );
+
+    currentIndex = 0;
+    document.getElementById('cardContainer').innerHTML = '';
+    document.querySelector('.load-more-wrapper').style.display = 'block';
+
+    renderMoreCards();
+});
 

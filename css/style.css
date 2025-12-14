@@ -198,6 +198,24 @@ body {
     font-size: 18px;
 }
 
+.category-menu {
+    border-bottom: 1px solid #000;
+}
+
+.category-menu select {
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(0,0,0,0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-family: 'Michroma', sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
