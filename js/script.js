@@ -36,6 +36,7 @@ async function loadCharacters() {
 
         buildCategorySelect(charactersData);
         toggleNoResultsMessage(filteredCharacters.length);
+        openPopupFromURL();
         renderMoreCards();
         revealOnScroll();
     } catch (error) {
@@ -116,28 +117,66 @@ document.addEventListener("click", (e) => {
 });
 
 document.getElementById("closePopup").addEventListener("click", closePopup);
-function openPopup(id, colorClass) {
+function openPopup(id, colorClass, skipPush = false) {
     const character = charactersData.find(c => c.id === id);
     if (!character) return;
 
     document.getElementById("popupName").textContent = character.name;
     document.getElementById("popupTitle").textContent = character.title;
     document.getElementById("popupDescription").textContent = character.description;
-
     document.getElementById("popupDomain").textContent = "Domain: " + character.domain;
     document.getElementById("popupSymbol").textContent = "Symbol: " + character.symbol;
     document.getElementById("popupStars").innerHTML = generateStars(character.rank);
-
     document.getElementById("popupImage").src = character.image;
 
     const overlay = document.getElementById("popupOverlay");
     overlay.setAttribute("data-color", colorClass);
-
     overlay.style.display = "flex";
+
+    if (!skipPush) {
+        const url = new URL(window.location);
+        url.searchParams.set("character", id);
+        window.history.pushState({}, "", url);
+    }
 }
 
 function closePopup() {
     document.getElementById("popupOverlay").style.display = "none";
+
+    const url = new URL(window.location);
+    url.searchParams.delete("character");
+    window.history.pushState({}, "", url);
+}
+
+function openPopupFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const characterId = params.get("character");
+    if (!characterId) return;
+
+    const index = charactersData.findIndex(c => c.id === characterId);
+
+    if (index === -1) {
+        handleInvalidCharacterParam();
+        return;
+    }
+
+    const colorClass = paletteClasses[index % paletteClasses.length];
+    openPopup(characterId, colorClass, true);
+}
+
+function handleInvalidCharacterParam() {
+    const url = new URL(window.location);
+    url.searchParams.delete('character');
+    window.history.replaceState({}, "", url);
+
+    const container = document.getElementById('cardContainer');
+    container.style.display = 'none';
+    
+    document.querySelector('.load-more-wrapper').style.display = 'none';
+
+    const msg = document.getElementById('noResults');
+    msg.textContent = 'Character not found';
+    msg.style.display = 'block';
 }
 
 function revealOnScroll() {
