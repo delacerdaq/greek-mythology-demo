@@ -20,10 +20,16 @@ let charactersData = [];
 let filteredCharacters = [];
 let currentIndex = 0;
 const batchSize = 6;
+const routes = ['/', '/characters', '/favorites', '/about'];
+const isFavoritesPage = window.location.pathname.includes('favorites.html');
+const FAVORITES_KEY = 'favoriteCharacters';
 
 document.addEventListener("DOMContentLoaded", () => {
     loadCharacters();
-    document.getElementById("loadMore").addEventListener("click", renderMoreCards);
+
+    if (!isFavoritesPage) {
+        document.getElementById("loadMore")?.addEventListener("click", renderMoreCards);
+    }
 });
 
 async function loadCharacters() {
@@ -32,13 +38,23 @@ async function loadCharacters() {
         const data = await response.json();
 
         charactersData = data.characters.filter(c => c.name && c.rank);
-        filteredCharacters = [...charactersData];
 
-        buildCategorySelect(charactersData);
-        toggleNoResultsMessage(filteredCharacters.length);
-        openPopupFromURL();
-        renderMoreCards();
-        revealOnScroll();
+        if (isFavoritesPage) {
+            showFavorites();
+        } else {
+            filteredCharacters = [...charactersData];
+            currentIndex = 0;
+        
+            const container = document.getElementById('cardContainer');
+            container.innerHTML = '';
+        
+            buildCategorySelect(charactersData);
+            toggleNoResultsMessage(filteredCharacters.length);
+            openPopupFromURL();
+            renderMoreCards();
+            revealOnScroll();
+        }        
+
     } catch (error) {
         console.error("JSON Error:", error);
     }
@@ -64,18 +80,37 @@ function renderMoreCards() {
     revealOnScroll();
 
     if (currentIndex >= filteredCharacters.length) {
-        document.querySelector(".load-more-wrapper").style.display = "none";
-    }
+        hideLoadMore();
+    } else {
+        showLoadMore();
+    }    
+}
+
+const loadMoreWrapper = document.querySelector('.load-more-wrapper');
+
+function showLoadMore() {
+    if (loadMoreWrapper) loadMoreWrapper.style.display = 'block';
+}
+
+function hideLoadMore() {
+    if (loadMoreWrapper) loadMoreWrapper.style.display = 'none';
 }
 
 function createCard(character, colorClass) {
     const card = document.createElement("div");
+    const favClass = isFavorite(character.id) ? 'bxs-heart' : 'bx-heart';
     card.className = `card ${colorClass}`;
 
     card.innerHTML = `
-    <h2 class="card-name">${character.name}</h2>
-    <span class="card-title">${character.title}</span>
+    <div class="card-header">
+        <i class='bx ${favClass} favorite-icon' data-id="${character.id}"></i>
 
+        <div class="card-name-container">
+            <h2 class="card-name">${character.name}</h2>
+            <span class="card-title">${character.title}</span>
+        </div>
+    </div>
+    
     <div class="img-box">
         <img src="${character.image || ''}" alt="${character.name}">
     </div>
@@ -194,14 +229,27 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll, { passive: true });
 window.addEventListener('load', revealOnScroll);
 
-const routes = ['/', '/characters', '/about'];
-
 function validateRoute() {
     const hash = window.location.hash.replace('#', '') || '/';
 
     if (!routes.includes(hash)) {
         window.location.href = '404.html';
+        return;
     }
+
+    if (hash === '/favorites') {
+        showFavorites();
+        hideLoadMore();
+        return;
+    }
+    filteredCharacters = [...charactersData];
+    currentIndex = 0;
+    
+    document.getElementById('cardContainer').innerHTML = '';
+    showLoadMore();
+    
+    applyFilters();
+    
 }
 
 window.addEventListener('load', validateRoute);
@@ -231,18 +279,20 @@ function debounce(fn, delay = 300) {
     };
 }
 
-document.getElementById('categorySelect').addEventListener('change', applyFilters);
-searchInput.addEventListener('input', debounce(applyFilters, 300));
+document.getElementById('categorySelect')?.addEventListener('change', applyFilters);
+const searchInput = document.getElementById('searchInput');
+searchInput?.addEventListener('input', debounce(applyFilters, 300));
 
 function applyFilters() {
-    const searchValue = document
-        .getElementById('searchInput')
-        .value
-        .toLowerCase()
-        .trim();
+    const searchEl = document.getElementById('searchInput');
+    const categoryEl = document.getElementById('categorySelect');
 
-    const selectedCategory =
-        document.getElementById('categorySelect').value;
+    if (!searchEl || !categoryEl) {
+        return;
+    }
+
+    const searchValue = searchEl.value.toLowerCase().trim();
+    const selectedCategory = categoryEl.value;
 
     filteredCharacters = charactersData.filter(char => {
         const matchText =
@@ -284,7 +334,7 @@ function sortCharacters(list) {
 
 const sortToggle = document.getElementById('sortToggle');
 
-sortToggle.addEventListener('click', () => {
+sortToggle?.addEventListener('click', () => {
     sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
 
     sortToggle.className = sortOrder === 'asc'
@@ -294,5 +344,58 @@ sortToggle.addEventListener('click', () => {
     applyFilters();
 });
 
+function getFavorites() {
+    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+}
 
+function saveFavorites(favorites) {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+}
 
+function isFavorite(id) {
+    return getFavorites().includes(id);
+}
+
+function toggleFavorite(id) {
+    let favorites = getFavorites();
+
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(favId => favId !== id);
+    } else {
+        favorites.push(id);
+    }
+
+    saveFavorites(favorites);
+}
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('favorite-icon')) {
+        const id = e.target.dataset.id;
+
+        toggleFavorite(id);
+
+        e.target.classList.toggle('bx-heart');
+        e.target.classList.toggle('bxs-heart');
+    }
+});
+
+function showFavorites() {
+    const container = document.getElementById('cardContainer');
+    container.innerHTML = '';
+
+    hideLoadMore();
+
+    const favorites = getFavorites();
+    filteredCharacters = charactersData.filter(char =>
+        favorites.includes(char.id)
+    );
+
+    toggleNoResultsMessage(filteredCharacters.length);
+
+    filteredCharacters.forEach((character, index) => {
+        const paletteClass = paletteClasses[index % paletteClasses.length];
+        container.appendChild(createCard(character, paletteClass));
+    });
+
+    revealOnScroll();
+}
