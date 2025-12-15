@@ -19,6 +19,7 @@ let sortOrder = 'asc';
 let charactersData = [];
 let filteredCharacters = [];
 let currentIndex = 0;
+let isInvalidCharacter = false;
 const batchSize = 6;
 const routes = ['/', '/characters', '/favorites', '/about'];
 const isFavoritesPage = window.location.pathname.includes('favorites.html');
@@ -41,6 +42,7 @@ async function loadCharacters() {
 
         if (isFavoritesPage) {
             showFavorites();
+            openPopupFromURL();
         } else {
             filteredCharacters = [...charactersData];
             currentIndex = 0;
@@ -61,6 +63,7 @@ async function loadCharacters() {
 }
 
 function renderMoreCards() {
+    if (isInvalidCharacter) return;
     const container = document.getElementById("cardContainer");
 
     const nextItems = filteredCharacters.slice(
@@ -200,14 +203,16 @@ function openPopupFromURL() {
 }
 
 function handleInvalidCharacterParam() {
+    isInvalidCharacter = true;
+
     const url = new URL(window.location);
     url.searchParams.delete('character');
     window.history.replaceState({}, "", url);
 
     const container = document.getElementById('cardContainer');
     container.style.display = 'none';
-    
-    document.querySelector('.load-more-wrapper').style.display = 'none';
+
+    hideLoadMore();
 
     const msg = document.getElementById('noResults');
     msg.textContent = 'Character not found';
@@ -230,6 +235,7 @@ window.addEventListener('scroll', revealOnScroll, { passive: true });
 window.addEventListener('load', revealOnScroll);
 
 function validateRoute() {
+    if (isInvalidCharacter) return;
     const hash = window.location.hash.replace('#', '') || '/';
 
     if (!routes.includes(hash)) {
@@ -284,6 +290,7 @@ const searchInput = document.getElementById('searchInput');
 searchInput?.addEventListener('input', debounce(applyFilters, 300));
 
 function applyFilters() {
+    if (isInvalidCharacter) return;
     const searchEl = document.getElementById('searchInput');
     const categoryEl = document.getElementById('categorySelect');
 
