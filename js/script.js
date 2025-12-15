@@ -15,6 +15,7 @@ const paletteClasses = [
 
 const apiURL = "./data/greek_characters.json";
 
+let sortOrder = 'asc';
 let charactersData = [];
 let filteredCharacters = [];
 let currentIndex = 0;
@@ -191,14 +192,8 @@ function debounce(fn, delay = 300) {
     };
 }
 
-
-document.getElementById('categorySelect').addEventListener('change', () => {
-    applyFilters();
-});
-
-const debouncedApplyFilters = debounce(applyFilters, 300);
-
-document.getElementById('searchInput').addEventListener('input', debouncedApplyFilters);
+document.getElementById('categorySelect').addEventListener('change', applyFilters);
+searchInput.addEventListener('input', debounce(applyFilters, 300));
 
 function applyFilters() {
     const searchValue = document
@@ -213,7 +208,7 @@ function applyFilters() {
     filteredCharacters = charactersData.filter(char => {
         const matchText =
             char.name.toLowerCase().includes(searchValue) ||
-            (char.title && char.title.toLowerCase().includes(searchValue));
+            char.title.toLowerCase().includes(searchValue);
 
         const matchCategory =
             selectedCategory === 'all' ||
@@ -222,14 +217,12 @@ function applyFilters() {
         return matchText && matchCategory;
     });
 
+    sortCharacters(filteredCharacters);
     currentIndex = 0;
-    const container = document.getElementById('cardContainer');
-    container.innerHTML = '';
+    document.getElementById('cardContainer').innerHTML = '';
+    document.querySelector('.load-more-wrapper').style.display = 'block';
 
     toggleNoResultsMessage(filteredCharacters.length);
-
-    document.querySelector('.load-more-wrapper').style.display =
-        filteredCharacters.length > batchSize ? 'block' : 'none';
 
     renderMoreCards();
 }
@@ -238,5 +231,29 @@ function toggleNoResultsMessage(hasResults) {
     const msg = document.getElementById('noResults');
     msg.style.display = hasResults ? 'none' : 'block';
 }
+
+function sortCharacters(list) {
+    return list.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+
+        if (nameA < nameB) return sortOrder === 'asc' ? -1 : 1;
+        if (nameA > nameB) return sortOrder === 'asc' ? 1 : -1;
+        return 0;
+    });
+}
+
+const sortToggle = document.getElementById('sortToggle');
+
+sortToggle.addEventListener('click', () => {
+    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+
+    sortToggle.className = sortOrder === 'asc'
+        ? 'bx bx-arrow-down-wide-narrow'
+        : 'bx bx-arrow-up-narrow-wide';
+
+    applyFilters();
+});
+
 
 
