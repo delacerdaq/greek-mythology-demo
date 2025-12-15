@@ -230,14 +230,15 @@ body {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); 
     gap: 40px;
     padding: 40px;
     justify-items: center;
 }
 
 .card {
-    width: 400px;
+    width: 100%;
+    max-width: 450px;
     height: 550px;
     border-radius: 20px;
     padding: 20px;
@@ -294,7 +295,7 @@ body {
 }
 
 .img-box {
-    width: 365px;
+    width: 100%;
     height: 250px;
     border-radius: 10px;
     overflow: hidden;
@@ -536,21 +537,6 @@ body {
     padding: 20px;
 }
 
-@media (max-width: 1280px) {
-    .popup {
-        max-width: 95%;
-        max-height: 90vh;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-    .popup {
-        padding: 15px;
-        border-radius: 14px;
-    }
-}
-
 .popup-content {
     font-family: "Montagu Slab", serif;
     font-optical-sizing: auto;
@@ -586,13 +572,6 @@ body {
     margin-top: 20px;
 }
 
-@media (max-width: 600px) {
-    .popup-description-box {
-        font-size: 15px;
-        padding: 0 10px;
-    }
-}
-
 .close-btn {
     border: none;
     background: none;
@@ -620,4 +599,69 @@ body {
 
 .card-header i {
     font-size: 24px;
+}
+
+@media (max-width: 1280px) {
+    .popup {
+        max-width: 95%;
+        max-height: 90vh;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .popup {
+        padding: 15px;
+        border-radius: 14px;
+    }
+
+    .popup-description-box {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    header {
+        width: 100%;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding: 14px 10px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .category-menu {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 14px 10px;
+        justify-content: center;
+    }
+
+    .search-menu input,
+    .category-menu select {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+    }
+
+    #sortToggle {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: 20px;
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
 }
