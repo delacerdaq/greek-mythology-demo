@@ -245,6 +245,11 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: reveal 0.6s ease forwards;
+    animation-play-state: paused;
 }
 
 .card h2 {
@@ -459,14 +464,6 @@ body {
     font-family: "Michroma", sans-serif;
     text-transform: uppercase;
 }
-
-.card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    animation: reveal 0.6s ease forwards;
-    animation-play-state: paused;
-  }
 
 .card:hover {
     transform: translateY(-6px) scale(1.02);
