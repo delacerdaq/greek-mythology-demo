@@ -25,8 +25,9 @@ const routes = ['/', '/characters', '/favorites', '/about'];
 const isFavoritesPage = window.location.pathname.includes('favorites.html');
 const FAVORITES_KEY = 'favoriteCharacters';
 
-document.addEventListener("DOMContentLoaded", () => {
-    loadCharacters();
+document.addEventListener("DOMContentLoaded", async () => {
+    validateRoute();
+    await loadCharacters();
 
     if (!isFavoritesPage) {
         document.getElementById("loadMore")?.addEventListener("click", renderMoreCards);
@@ -42,20 +43,21 @@ async function loadCharacters() {
 
         if (isFavoritesPage) {
             showFavorites();
-            openPopupFromURL();
-        } else {
-            filteredCharacters = [...charactersData];
-            currentIndex = 0;
-        
-            const container = document.getElementById('cardContainer');
-            container.innerHTML = '';
-        
-            buildCategorySelect(charactersData);
-            toggleNoResultsMessage(filteredCharacters.length);
-            openPopupFromURL();
-            renderMoreCards();
             revealOnScroll();
-        }        
+            openPopupFromURL();
+            return;
+        }
+
+        filteredCharacters = [...charactersData];
+        currentIndex = 0;
+
+        const container = document.getElementById('cardContainer');
+        container.innerHTML = '';
+
+        buildCategorySelect(charactersData);
+        toggleNoResultsMessage(filteredCharacters.length);
+        openPopupFromURL();
+        renderMoreCards();
 
     } catch (error) {
         console.error("JSON Error:", error);
@@ -242,20 +244,6 @@ function validateRoute() {
         window.location.href = '404.html';
         return;
     }
-
-    if (hash === '/favorites') {
-        showFavorites();
-        hideLoadMore();
-        return;
-    }
-    filteredCharacters = [...charactersData];
-    currentIndex = 0;
-    
-    document.getElementById('cardContainer').innerHTML = '';
-    showLoadMore();
-    
-    applyFilters();
-    
 }
 
 window.addEventListener('load', validateRoute);
@@ -403,6 +391,4 @@ function showFavorites() {
         const paletteClass = paletteClasses[index % paletteClasses.length];
         container.appendChild(createCard(character, paletteClass));
     });
-
-    revealOnScroll();
 }
