@@ -615,7 +615,6 @@ body {
         flex-wrap: wrap;
         gap: 16px;
         padding: 14px 10px;
-        justify-content: center;
         text-align: center;
     }
 
@@ -646,7 +645,6 @@ body {
         flex-wrap: wrap;
         gap: 16px;
         padding: 14px 10px;
-        justify-content: center;
         text-align: center;
     }
 
