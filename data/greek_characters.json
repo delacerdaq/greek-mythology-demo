@@ -8,6 +8,7 @@
       "domain": "Sky, Thunder, Justice",
       "symbol": "Thunderbolt",
       "rank": 5,
+      "era": "Olympians",
       "description": "Supreme ruler of Mount Olympus, Zeus commands the sky, thunder and lightning. He is the enforcer of divine law and justice, feared for his wrath and revered as the ultimate authority among gods and mortals.",
       "image": "data/images/zeus.jpeg"
     },
@@ -19,6 +20,7 @@
       "domain": "Marriage, Women, Family",
       "symbol": "Peacock",
       "rank": 4,
+      "era": "Olympians",
       "description": "Queen of the gods and wife of Zeus, Hera presides over marriage, family and the sanctity of women. Known for her dignity and power, she fiercely protects her domain and punishes betrayal.",
       "image": "data/images/hera.jpeg"
     },
@@ -30,6 +32,7 @@
       "domain": "Oceans, Earthquakes, Horses",
       "symbol": "Trident",
       "rank": 5,
+      "era": "Olympians",
       "description": "God of the seas, Poseidon rules over oceans, storms and earthquakes. Temperamental and powerful, his moods shape the waters of the world and the fate of sailors and coastal lands.",
       "image": "data/images/poseidon.jpeg"
     },
@@ -41,6 +44,7 @@
       "categories": ["death", "wealth", "justice"],
       "symbol": "Helm of Darkness",
       "rank": 5,
+      "era": "Olympians",
       "description": "Lord of the underworld, Hades governs the realm of the dead and the hidden wealth beneath the earth. Stern but just, he maintains balance between life and death.",
       "image": "data/images/hades.jpeg"
     },
@@ -52,6 +56,7 @@
       "domain": "Wisdom, War Strategy, Crafts",
       "symbol": "Owl",  
       "rank": 5,
+      "era": "Olympians",
       "description": "Goddess of wisdom and strategic warfare, Athena represents intelligence, reason and civilization. She guides heroes and cities through discipline, planning and justice rather than brute force.",
       "image": "data/images/athena.jpeg"
     },
@@ -63,6 +68,7 @@
       "domain": "War, Violence",
       "symbol": "Spear",
       "rank": 3,
+      "era": "Olympians",
       "description": "God of war in its rawest form, Ares embodies violence, chaos and bloodlust. Feared even by the gods, he thrives in conflict and destruction.",
       "image": "data/images/ares.jpeg"
     },
@@ -74,6 +80,7 @@
       "domain": "Sun, Arts, Prophecy, Healing",
       "symbol": "Lyre",
       "rank": 5,
+      "era": "Olympians",
       "description": "God of the sun, music and prophecy, Apollo represents harmony, enlightenment and healing. His presence brings light, truth and artistic inspiration to gods and mortals alike.",
       "image": "data/images/apollo.jpeg"
     },
@@ -85,6 +92,7 @@
       "domain": "Hunting, Moon, Wilderness",
       "symbol": "Bow and Arrow",
       "rank": 5,
+      "era": "Olympians",
       "description": "Goddess of the hunt and the moon, Artemis is a fierce protector of wilderness and wildlife. Independent and relentless, she guards nature and punishes those who disrespect it.",
       "image": "data/images/artemis.jpeg"
     },
@@ -96,6 +104,7 @@
       "domain": "Love, Beauty, Desire",
       "symbol": "Dove",
       "rank": 4,
+      "era": "Olympians",
       "description": "Goddess of love and beauty, Aphrodite wields desire as a divine force capable of uniting or destroying gods and mortals. Her influence shapes passion, attraction and obsession.",
       "image": "data/images/aphrodite.jpeg"
     },
@@ -107,6 +116,7 @@
       "domain": "Agriculture, Seasons",
       "symbol": "Wheat",
       "rank": 4,
+      "era": "Olympians",
       "description": "Goddess of agriculture and harvest, Demeter controls fertility of the land and the changing seasons. Her emotions directly affect the prosperity and survival of humanity.",
       "image": "data/images/demeter.jpeg"
     },
@@ -118,6 +128,7 @@
       "domain": "Wine, Ecstasy, Ritual",
       "symbol": "Grapevine",
       "rank": 3,
+      "era": "Olympians",
       "description": "God of wine, ecstasy and ritual madness, Dionysus blurs the line between joy and chaos. He represents freedom, transformation and the loss of control through celebration.",
       "image": "data/images/dionysus.jpeg"
     },
@@ -129,6 +140,7 @@
       "domain": "Fire, Metalwork, Crafting",
       "symbol": "Hammer and Anvil",
       "rank": 4,
+      "era": "Olympians",
       "description": "God of fire and craftsmanship, Hephaestus is the divine blacksmith who forges weapons and artifacts for gods and heroes. Though underestimated, his skill surpasses all others.",
       "image": "data/images/hephaestus.jpeg"
     },
@@ -140,6 +152,7 @@
       "domain": "Messages, Travel, Commerce",
       "symbol": "Caduceus",
       "rank": 4,
+      "era": "Olympians",
       "description": "Swift messenger of the gods, Hermes governs travel, trade and communication. Clever and agile, he moves freely between realms, guiding souls and spreading divine messages.",
       "image": "data/images/hermes.jpeg"
     },
@@ -151,6 +164,7 @@
       "domain": "Home, Family, Fire",
       "symbol": "Hearth Flame",
       "rank": 4,
+      "era": "Olympians",
       "description": "Goddess of the hearth and home, Hestia embodies peace, stability and domestic harmony. Quiet but essential, she represents the sacred bond of family and community.",
       "image": "data/images/hestia.jpeg"
     },
@@ -162,6 +176,7 @@
       "domain": "Spring, Renewal, Underworld",
       "symbol": "Pomegranate",
       "rank": 4,
+      "era": "Olympians",
       "description": "Queen of the underworld and goddess of renewal, Persephone bridges life and death. Her seasonal return to the earth symbolizes rebirth, spring and the cycle of nature.",
       "image": "data/images/persephone.jpeg"
     },
@@ -173,6 +188,7 @@
       "domain": "Love, Passion",
       "symbol": "Bow of Desire",
       "rank": 3,
+      "era": "Primordials",
       "description": "God of desire and attraction, Eros represents the primal force of love that binds beings together. His power is subtle yet overwhelming, capable of shaping destinies.",
       "image": "data/images/eros.jpeg"
     },
@@ -184,6 +200,7 @@
       "domain": "Victory, Triumph",
       "symbol": "Laurel Wreath",
       "rank": 3,
+      "era": "Titans",
       "description": "Winged goddess of victory, Nike personifies triumph in battle, competition and achievement. She rewards effort, skill and perseverance with glory.",
       "image": "data/images/nike.jpeg"
     },
@@ -195,6 +212,7 @@
       "domain": "Earth, Nature",
       "symbol": "Earth Itself",
       "rank": 5,
+      "era": "Primordials",
       "description": "The primordial Earth Mother, Gaia is the foundation of all life. From her emerged the Titans, gods and the natural world itself.",
       "image": "data/images/gaia.jpeg"
     },
@@ -206,6 +224,7 @@
       "categories": ["sky", "magic"],
       "symbol": "Night Sky",
       "rank": 4,
+      "era": "Primordials",
       "description": "Primordial god of the sky, Uranus represents the heavens and cosmic order. As father of the Titans, his legacy shaped the early structure of the universe.",
       "image": "data/images/uranus.jpeg"
     },
@@ -217,6 +236,7 @@
       "domain": "Time, Harvest",
       "symbol": "Sickle",
       "rank": 5,
+      "era": "Titans",
       "description": "Leader of the Titans, Cronus ruled during the Golden Age before the Olympians. Associated with time and harvest, he symbolizes inevitable cycles and downfall.",
       "image": "data/images/cronos.jpeg"
     },
@@ -228,6 +248,7 @@
       "domain": "Motherhood, Fertility",
       "symbol": "Lion",
       "rank": 4,
+      "era": "Titans",
       "description": "Titaness of motherhood and fertility, Rhea protected the future Olympian gods. Her actions ensured the fall of the Titans and the rise of a new divine order.",
       "image": "data/images/rhea.jpeg"
     },
@@ -239,6 +260,7 @@
       "domain": "Forethought, Craft, Humanity",
       "symbol": "Torch",
       "rank": 4,
+      "era": "Titans",
       "description": "Titan of foresight and rebellion, Prometheus defied Zeus by gifting fire to humanity. His punishment became a symbol of sacrifice for progress and knowledge.",
       "image": "data/images/prometheus.jpeg"
     },
@@ -250,6 +272,7 @@
       "domain": "Curiosity, Fate",
       "symbol": "Jar",
       "rank": 2,
+      "era": "Heroes",
       "description": "The first mortal woman, Pandora unleashed suffering upon the world through her curiosity. Yet she also released hope, ensuring humanity’s endurance.",
       "image": "data/images/pandora.jpeg"
     },
@@ -261,6 +284,7 @@
       "domain": "Petrification",
       "symbol": "Snake Hair",
       "rank": 3,
+      "era": "Heroes",
       "description": "Once mortal, Medusa became a fearsome Gorgon whose gaze turns others to stone. Her tragic transformation reflects punishment, power and terror.",
       "image": "data/images/medusa.jpeg"
     },
@@ -272,6 +296,7 @@
       "domain": "Underworld Gatekeeping",
       "symbol": "Three Heads",
       "rank": 4,
+      "era": "Heroes",
       "description": "Three-headed hound guarding the gates of the underworld, Cerberus prevents the dead from escaping and the living from entering uninvited.",
       "image": "data/images/cerberus.jpeg"
     },
@@ -283,6 +308,7 @@
       "domain": "Strength, Warfare",
       "symbol": "Shield",
       "rank": 4,
+      "era": "Heroes",
       "description": "Legendary hero of the Trojan War, Achilles possessed unmatched combat skill and near invulnerability. His story is defined by glory, rage and tragic fate.",
       "image": "data/images/achilles.jpeg"
     },
@@ -294,6 +320,7 @@
       "domain": "Strategy, Exploration",
       "symbol": "Ship",
       "rank": 4,
+      "era": "Heroes",
       "description": "King of Ithaca and master strategist, Odysseus is known for intelligence and endurance. His long journey home tested wit, loyalty and resilience.",
       "image": "data/images/odysseus.jpeg"
     },
@@ -305,6 +332,7 @@
       "domain": "Strength, Courage",
       "symbol": "Lion Skin",
       "rank": 5,
+      "era": "Heroes",
       "description": "The greatest of Greek heroes, Heracles achieved immortality through strength and suffering. His twelve labors proved endurance, courage and redemption.",
       "image": "data/images/hercules.jpeg"
     },
@@ -316,6 +344,7 @@
       "domain": "Heroism, Justice",
       "symbol": "Labyrinth",
       "rank": 4,
+      "era": "Heroes",
       "description": "Hero and king, Theseus brought order and justice to Athens. His defeat of the Minotaur symbolized triumph over chaos and fear.",
       "image": "data/images/theseus.jpeg"
     },
@@ -327,6 +356,7 @@
       "domain": "Heroism, Adventure",
       "symbol": "Winged Sandals",
       "rank": 4,
+      "era": "Heroes",
       "description": "Hero blessed by the gods, Perseus defeated Medusa and saved Andromeda. His adventures embody bravery, destiny and divine favor.",
       "image": "data/images/perseus.jpeg"
     },
@@ -338,6 +368,7 @@
       "domain": "Witchcraft, Crossroads, Night",
       "symbol": "Torch and Keys",
       "rank": 4,
+      "era": "Titans",
       "description": "Goddess of magic, witchcraft and crossroads, Hecate governs the unseen and the mystical. She guides souls through darkness and transformation.",
       "image": "data/images/hecate.jpeg"
     },
@@ -349,6 +380,7 @@
       "domain": "Fate, Inevitability",
       "symbol": "Shadow",
       "rank": 3,
+      "era": "Primordials",
       "description": "Primordial embodiment of doom, Moros represents inevitable fate and destruction. His presence signals destiny that cannot be avoided.",
       "image": "data/images/moros.jpeg"
     },
@@ -360,6 +392,7 @@
       "domain": "Sleep, Dreams",
       "symbol": "Poppy",
       "rank": 3,
+      "era": "Primordials",
       "description": "God of sleep and dreams, Hypnos brings rest and oblivion to gods and mortals. His gentle power governs peace, recovery and the dream world.",
       "image": "data/images/hypnos.jpeg"
     }

@@ -598,6 +598,12 @@ body {
     font-size: 24px;
 }
 
+.heartEra-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
 @media (max-width: 1280px) {
     .popup {
         max-width: 95%;

@@ -54,6 +54,7 @@ async function loadCharacters() {
         const container = document.getElementById('cardContainer');
         container.innerHTML = '';
 
+        buildEras(charactersData);
         buildCategorySelect(charactersData);
         toggleNoResultsMessage(filteredCharacters.length);
         openPopupFromURL();
@@ -108,8 +109,14 @@ function createCard(character, colorClass) {
 
     card.innerHTML = `
     <div class="card-header">
-        <i class='bx ${favClass} favorite-icon' data-id="${character.id}"></i>
+        <div class="heartEra-section">
+            <i class='bx ${favClass} favorite-icon' data-id="${character.id}"></i>
 
+            <span>
+                ${character.era}
+            </span>
+        </div>
+        
         <div class="card-name-container">
             <h2 class="card-name">${character.name}</h2>
             <span class="card-title">${character.title}</span>
@@ -265,6 +272,24 @@ function buildCategorySelect(characters) {
     });
 }
 
+function buildEras (characters) {
+    const selectEras = document.getElementById('timelineEras');
+    const eras = new Set();
+
+    characters.forEach(char => {
+        if (char.era) {
+            eras.add(char.era);
+        }
+    });
+
+    [...eras].sort().forEach(era => {
+        const option = document.createElement('option');
+        option.value = era;
+        option.textContent = era.toUpperCase();
+        selectEras.appendChild(option);
+    });
+}
+
 function debounce(fn, delay = 300) {
     let timer;
     return (...args) => {
@@ -274,6 +299,8 @@ function debounce(fn, delay = 300) {
 }
 
 document.getElementById('categorySelect')?.addEventListener('change', applyFilters);
+document.getElementById('timelineEras')?.addEventListener('change', applyFilters);
+
 const searchInput = document.getElementById('searchInput');
 searchInput?.addEventListener('input', debounce(applyFilters, 300));
 
@@ -281,24 +308,30 @@ function applyFilters() {
     if (isInvalidCharacter) return;
     const searchEl = document.getElementById('searchInput');
     const categoryEl = document.getElementById('categorySelect');
+    const erasEl = document.getElementById('timelineEras');
 
-    if (!searchEl || !categoryEl) {
+    if (!searchEl || !categoryEl || !erasEl) {
         return;
     }
 
     const searchValue = searchEl.value.toLowerCase().trim();
     const selectedCategory = categoryEl.value;
+    const selectedEra = erasEl.value;
 
     filteredCharacters = charactersData.filter(char => {
         const matchText =
             char.name.toLowerCase().includes(searchValue) ||
             char.title.toLowerCase().includes(searchValue);
 
+        const matchEra =
+            selectedEra === 'allEras' ||
+            char.era.includes(selectedEra);
+
         const matchCategory =
             selectedCategory === 'all' ||
             char.categories.includes(selectedCategory);
 
-        return matchText && matchCategory;
+        return matchText && matchCategory && matchEra;
     });
 
     sortCharacters(filteredCharacters);
