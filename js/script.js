@@ -24,6 +24,10 @@ const batchSize = 6;
 const routes = ['/', '/characters', '/favorites', '/about'];
 const isFavoritesPage = window.location.pathname.includes('favorites.html');
 const FAVORITES_KEY = 'favoriteCharacters';
+const themeToggle = document.querySelector('.theme-color i');
+const body = document.body;
+const THEME_KEY = 'theme';
+const savedTheme = localStorage.getItem(THEME_KEY);
 
 document.addEventListener("DOMContentLoaded", async () => {
     validateRoute();
@@ -425,3 +429,26 @@ function showFavorites() {
         container.appendChild(createCard(character, paletteClass));
     });
 }
+
+function changeTheme() {
+    if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeToggle.classList.remove('bx-toggle-left');
+        themeToggle.classList.add('bx-toggle-right');
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        const isDark = body.classList.toggle('dark');
+    
+        if (isDark) {
+            themeToggle.classList.remove('bx-toggle-left');
+            themeToggle.classList.add('bx-toggle-right');
+            localStorage.setItem(THEME_KEY, 'dark');
+        } else {
+            themeToggle.classList.remove('bx-toggle-right');
+            themeToggle.classList.add('bx-toggle-left');
+            localStorage.setItem(THEME_KEY, 'light');
+        }
+    });
+}
+changeTheme();
