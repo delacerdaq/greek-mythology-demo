@@ -8,11 +8,11 @@ A modern, interactive web application showcasing Greek mythology characters with
 
 ## 🎨 Design
 
-View the original design on Figma: [Greek Mythology Cards Design](https://www.figma.com/design/kmhEMGxPMlfdzNSDQYbrza/Greek-Mythology-Cards?node-id=0-1&p=f&t=VWoS08IvKOY7ZF4M-0)
+View the original design on Figma: <a href="https://www.figma.com/design/kmhEMGxPMlfdzNSDQYbrza/Greek-Mythology-Cards?node-id=0-1&p=f&t=VWoS08IvKOY7ZF4M-0" target="_blank" rel="noopener">Greek Mythology Cards Design</a>
 
 ## 🌐 Live Demo
 
-Experience the application live: [Greek Mythology Demo](https://delacerdaq.github.io/greek-mythology-demo/)
+Experience the application live: <a href="https://delacerdaq.github.io/greek-mythology-demo/" target="_blank" rel="noopener">Greek Mythology Demo</a>
 
 ## ✨ Features
 
@@ -107,7 +107,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 
-Created by [delacerdaq](https://github.com/delacerdaq) ♥
+Created by <a href="https://github.com/delacerdaq" target="_blank" rel="noopener">delacerdaq</a> ♥
 
 ---
 
